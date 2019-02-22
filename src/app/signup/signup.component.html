@@ -22,7 +22,7 @@
                    </div>
                 </div>
 
-                <div class="alert alert-danger">
+                <div class="alert alert-danger" *ngIf="(!myForm.controls['firstName'].valid || !myForm.controls['lastName'].valid) && (myForm.controls['firstName'].touched || myForm.controls['lastName'].touched)">
                   First and Last are required
                 </div>
                   
@@ -35,7 +35,7 @@
                 
                   </div>
                 
-                  <div class="alert alert-danger">
+                  <div class="alert alert-danger" *ngIf="!myForm.controls['email'].valid && myForm.controls['email'].touched"> 
                     A valid email id is required
                   </div>
                 
@@ -47,12 +47,12 @@
                   <input type="password" class="form-control" placeholder="confirm password" [formControl]="myForm.controls['confirmPassword']">
                 </div>
                 <br>
-                <div class="alert alert-danger">
+                <div class="alert alert-danger" *ngIf="!myForm.controls['password'].valid && myForm.controls['password'].touched">
                   Password should be eight character long.
                 </div>
                 <br>
                 <div class="text-center">
-                  <button class="submit" class="btn btn-block btn-warning">submit</button>
+                  <button class="submit" class="btn btn-block btn-warning" [disabled]="!myForm.valid">submit</button>
                 </div>
               </form>
 
