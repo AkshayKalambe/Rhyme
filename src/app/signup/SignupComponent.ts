@@ -12,6 +12,8 @@ import { error } from '@angular/compiler/src/util';
 export class SignupComponent implements OnInit {
 
   myForm: FormGroup;
+  message: string = "";
+  userError: any;
   
   constructor(public fb: FormBuilder) {
   
@@ -56,9 +58,12 @@ export class SignupComponent implements OnInit {
        response.user.updateProfile({
          displayName: firstName + " " + lastName,
          photoURL: "https://api.adorable.io/avatars/" + randomNumber
+       }).then(() => {
+         this.message = "You had been sign up successfully"
        })
       }).catch((error) => {
        console.log(error);
+       this.userError = error;
       })
 
 

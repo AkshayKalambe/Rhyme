@@ -8,6 +8,7 @@ import 'firebase/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from "./signup/SignupComponent";
+import { LoginComponent } from './login/login.component';
 
 let config = {
   apiKey: "AIzaSyAv0vduDE1_cxy9R_-iMspiN57fwCtCGJk",
@@ -23,7 +24,8 @@ firebase.initializeApp(config);
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
