@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
-import { error } from '@angular/compiler/src/util';
+import { AuthService } from '../auth.service'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -15,7 +12,7 @@ export class SignupComponent implements OnInit {
   message: string = "";
   userError: any;
   
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder,public authService: AuthService) {
   
     this.myForm = this.fb.group({
       firstName: ['',[Validators.required]],
@@ -44,23 +41,18 @@ export class SignupComponent implements OnInit {
       }
   }
 
-  onSubmit(signupform){
+  
+  
+  onSubmit(signupform) {
     let email: string = signupform.value.email;
     let password: string = signupform.value.password;
     let firstName: string =signupform.value.firstName;
     let lastName: string =signupform.value.lastName;
 
-     firebase.auth().createUserWithEmailAndPassword(email, password).then((response) => {
-       console.log(response);
-
-       let randomNumber = Math.floor(Math.random() * 1000)
-
-       response.user.updateProfile({
-         displayName: firstName + " " + lastName,
-         photoURL: "https://api.adorable.io/avatars/" + randomNumber
-       }).then(() => {
+     this.authService.signup(email, password, firstName, lastName).then(() =>{
+      
          this.message = "You had been sign up successfully"
-       })
+       
       }).catch((error) => {
        console.log(error);
        this.userError = error;

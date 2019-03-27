@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from "./signup/SignupComponent";
 import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
+import { HomeComponent } from './home/home.component';
 
 let config = {
   apiKey: "AIzaSyAv0vduDE1_cxy9R_-iMspiN57fwCtCGJk",
@@ -25,7 +27,9 @@ firebase.initializeApp(config);
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
