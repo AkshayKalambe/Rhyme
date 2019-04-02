@@ -11,6 +11,8 @@ import { SignupComponent } from "./signup/SignupComponent";
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
+import { MyblogsComponent } from './myblogs/myblogs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 let config = {
   apiKey: "AIzaSyAv0vduDE1_cxy9R_-iMspiN57fwCtCGJk",
@@ -29,7 +31,9 @@ firebase.initializeApp(config);
     SignupComponent,
     LoginComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    MyblogsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
