@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       console.log(data);
       this.message = "you have login successfully"
 
-      this.router.navigate(["/myblogs"])
+      this.router.navigate(['/myblogs'])
 
     }).catch((error) => {
       console.log(error);

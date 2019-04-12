@@ -1,9 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-html{
-    height: 100%;
+html {
+  height: 100%;
 }
 
-body{
-    height: 100%;
-    font-family: 'Raleway',sans-serif;
+body {
+  height: 100%;
+  font-family: "Raleway", sans-serif;
+}
+#toast-container > div {
+  opacity: 1;
 }

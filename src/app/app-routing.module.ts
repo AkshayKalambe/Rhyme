@@ -7,17 +7,17 @@ import { ProfileComponent } from "./profile/profile.component";
 import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [{
-    path: "",redirectTo: "home",pathMatch: "full"
+    path: "",redirectTo: 'home',pathMatch: 'full'
   },{
-    path: "home", component: HomeComponent
+    path: 'home', component: HomeComponent
   },{
-    path: "login",component: LoginComponent
+    path: 'login',component: LoginComponent
   },{
-    path: "myblogs",component: MyblogsComponent,canActivate: [AuthGuard]
+    path: 'myblogs',component: MyblogsComponent, canActivate: [AuthGuard]
   },{
-    path: "profile/:id",component: ProfileComponent
+    path: 'profile/:id',component: ProfileComponent
   },{
-    path: "**",redirectTo: "home"
+    path: '**',redirectTo: 'home'
   }]
 
 @NgModule({

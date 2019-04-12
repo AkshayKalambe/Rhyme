@@ -1,3 +1,11 @@
-.vertical-divider{
-    border-right: 1px solid #ddd
+.vertical-divider {
+  border-right: 1px solid #ddd;
+}
+.fa-facebook {
+  color: blue;
+  font-size: 1.2rem;
+}
+.fa-envelope {
+  color: red;
+  font-style: bold;
 }
