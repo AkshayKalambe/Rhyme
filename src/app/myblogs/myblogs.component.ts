@@ -8,37 +8,49 @@ import 'firebase/firestore';
   templateUrl: './myblogs.component.html',
   styleUrls: ['./myblogs.component.css']
 })
-
 export class MyblogsComponent implements OnInit {
 
   user: any = {};
-  posts: any[];
+  posts: any[] = [];
+
   constructor() {
     firebase.firestore().settings({
       timestampsInSnapshots: true
     });
     this.user = firebase.auth().currentUser;
-    this.getPost();
+    this.getPosts();
   }
 
   ngOnInit() {
   }
 
-  getPost() {
-    //get the list of post
-    
-    firebase.firestore().collection("posts").get().then((querySnapshot) => {
+  getPosts(){
+    // get the list of posts
+
+    firebase.firestore().collection("posts")
+    .orderBy("created", "desc")
+    .get().then((querySnapshot) => {
 
       console.log(querySnapshot.docs);
       this.posts = querySnapshot.docs;
+
     }).catch((err) => {
       console.log(err);
     })
 
   }
-  onPostCreated() {
-    // refresh the list of post
+
+  onPostCreated(){
+    // refresh the list of posts
     this.posts = [];
-    this.getPost();
+    this.getPosts();
+
   }
+
+  onDelete(){
+    // refresh the list of posts
+    this.posts = [];
+    this.getPosts();
+  }
+
 }

@@ -20,6 +20,8 @@ import { NgxEditorModule } from "ngx-editor";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
 import { PostComponent } from './post/post.component';
+import { ViewComponent } from './view/view.component';
+import { CommentComponent } from './comment/comment.component';
 
 let config = {
   apiKey: "AIzaSyAv0vduDE1_cxy9R_-iMspiN57fwCtCGJk",
@@ -41,7 +43,9 @@ firebase.initializeApp(config);
     MyblogsComponent,
     ProfileComponent,
     CreateComponent,
-    PostComponent
+    PostComponent,
+    ViewComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

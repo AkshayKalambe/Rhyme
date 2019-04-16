@@ -5,6 +5,7 @@ import { HomeComponent } from "./home/home.component";
 import { MyblogsComponent } from "./myblogs/myblogs.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { AuthGuard } from "./auth.guard";
+import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [{
     path: "",redirectTo: 'home',pathMatch: 'full'
@@ -16,7 +17,9 @@ const routes: Routes = [{
     path: 'myblogs',component: MyblogsComponent, canActivate: [AuthGuard]
   },{
     path: 'profile/:id',component: ProfileComponent
-  },{
+  }, {
+    path: 'view/:postId', component: ViewComponent
+  },{   
     path: '**',redirectTo: 'home'
   }]
 
