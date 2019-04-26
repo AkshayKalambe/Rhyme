@@ -24,7 +24,7 @@
 
                         <div class="form-group col-sm-6">
                            <input type="text" class="form-control" placeholder="Last Name" [formControl]="myForm.controls['lastName']">
-                       </div>
+                         </div>
                     </div>  
                        <div class="card-text">
                          <div class="alert alert-danger" *ngIf="(!myForm.controls['firstName'].valid || !myForm.controls['lastName'].valid) && (myForm.controls['firstName'].touched || myForm.controls['lastName'].touched)">
