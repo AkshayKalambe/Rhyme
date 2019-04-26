@@ -15,7 +15,7 @@ export class MyblogsComponent implements OnInit {
 
   constructor() {
     firebase.firestore().settings({
-      timestampsInSnapshots: true
+     // timestampsInSnapshots: true
     });
     this.user = firebase.auth().currentUser;
     this.getPosts();

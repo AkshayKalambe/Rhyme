@@ -1,27 +1,30 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import * as firebase from "firebase/app";
-import "firebase/auth";
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
+import { AppComponent } from './app.component';
+
 import { SignupComponent } from "./signup/SignupComponent";
-import { LoginComponent } from "./login/login.component";
-import { MenuComponent } from "./menu/menu.component";
-import { HomeComponent } from "./home/home.component";
-import { MyblogsComponent } from "./myblogs/myblogs.component";
-import { ProfileComponent } from "./profile/profile.component";
-import { CreateComponent } from "./create/create.component";
+import { LoginComponent } from './login/login.component';
 
-import { NgxEditorModule } from "ngx-editor";
-import { HttpClientModule } from "@angular/common/http";
-import { ToastrModule } from "ngx-toastr";
+import { AuthService } from './auth.service';
+import { HomeComponent } from './home/home.component';
+
+import { AppRoutingModule } from './/app-routing.module';
+import { MenuComponent } from './menu/menu.component';
+import { MyblogsComponent } from './myblogs/myblogs.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CreateComponent } from './create/create.component';
+
+import { NgxEditorModule } from 'ngx-editor';
+import { HttpClientModule } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
 import { ViewComponent } from './view/view.component';
-import { CommentComponent } from './comment/comment.component';
+import { CommentsComponent } from './comments/comments.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 let config = {
   apiKey: "AIzaSyAv0vduDE1_cxy9R_-iMspiN57fwCtCGJk",
@@ -38,14 +41,15 @@ firebase.initializeApp(config);
     AppComponent,
     SignupComponent,
     LoginComponent,
-    MenuComponent,
     HomeComponent,
+    MenuComponent,
     MyblogsComponent,
     ProfileComponent,
     CreateComponent,
     PostComponent,
     ViewComponent,
-    CommentComponent
+    CommentsComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,14 +57,9 @@ firebase.initializeApp(config);
     ReactiveFormsModule,
     AppRoutingModule,
     NgxEditorModule,
-    HttpClientModule,
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot({
-      timeOut: 1000,
-      positionClass: "toast-bottom-right"
-    })
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -15,29 +15,28 @@ export class MenuComponent implements OnInit {
   constructor() {
 
     this.user = firebase.auth().currentUser;
-
-    if (this.user) {
+    if(this.user) {
       this.loggedIn = true;
     } else {
       this.loggedIn = false;
     }
 
     firebase.auth().onAuthStateChanged((user) => {
-
-      if (user) {
+      this.user = user;
+      if(user){
         this.loggedIn = true;
-      } else { 
+      } else {
         this.loggedIn = false;
       }
 
     })
-    
-} 
- 
+
+  }
+
   ngOnInit() {
   }
 
-  logout() {
+  logout(){
     firebase.auth().signOut();
   }
 
